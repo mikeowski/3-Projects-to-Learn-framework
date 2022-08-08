@@ -11,6 +11,10 @@ const AddTodoForm = ({ setTodo, Todos }: props) => {
       alert('This todo is already exist')
       return
     }
+    if (title === '') {
+      alert('Please enter a todo')
+      return
+    }
     setTodo((prev) => [...prev, { title, completed: false }])
     setTitle('')
   }
@@ -21,7 +25,7 @@ const AddTodoForm = ({ setTodo, Todos }: props) => {
         e.preventDefault()
         addTodo()
       }}
-      className="margin-large"
+      className="todoForm"
     >
       <label htmlFor="todo">
         <h1 className="center">Add new</h1>

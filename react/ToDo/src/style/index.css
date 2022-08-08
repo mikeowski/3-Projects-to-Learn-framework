@@ -10,14 +10,34 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+body {
+  padding: 20px;
+}
 .center {
   text-align: center;
   font-size: 32px;
 }
-.mainContainer {
-  margin-top: 150px;
+
+.todoList {
+  place-content: left;
 }
 .todo {
   display: flex;
-  place-content: center;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+.todo > .title {
+  font-size: 24px;
+}
+@media (min-width: 956px) {
+  .parent {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 0px;
+    align-items: center;
+    height: 100vh;
+  }
 }
