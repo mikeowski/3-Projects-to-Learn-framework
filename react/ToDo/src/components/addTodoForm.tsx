@@ -12,6 +12,7 @@ const AddTodoForm = ({ setTodo, Todos }: props) => {
       return
     }
     setTodo((prev) => [...prev, { title, completed: false }])
+    setTitle('')
   }
   const [title, setTitle] = useState('')
   return (
@@ -20,6 +21,7 @@ const AddTodoForm = ({ setTodo, Todos }: props) => {
         e.preventDefault()
         addTodo()
       }}
+      className="margin-large"
     >
       <label htmlFor="todo">
         <h1 className="center">Add new</h1>
