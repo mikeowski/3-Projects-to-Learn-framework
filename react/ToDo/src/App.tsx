@@ -1,12 +1,20 @@
 import { useState } from 'react'
 import AddTodoForm from './components/addTodoForm'
+import TodoList from './components/todoList'
 import { todo } from './lib/types'
 
 function App() {
-  const [todos, setTodos] = useState<todo[]>([])
+  const [todoList, setTodoList] = useState<todo[]>([])
   return (
-    <div className="mainContainer">
-      <AddTodoForm setTodo={setTodos} Todos={todos} />
+    <div className="container-fluid grid mainContainer">
+      <div>
+        {' '}
+        <TodoList todoList={todoList} />
+      </div>
+      <div>
+        {' '}
+        <AddTodoForm setTodo={setTodoList} Todos={todoList} />
+      </div>
     </div>
   )
 }
