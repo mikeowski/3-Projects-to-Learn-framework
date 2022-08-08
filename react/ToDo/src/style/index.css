@@ -17,3 +17,7 @@
 .mainContainer {
   margin-top: 150px;
 }
+.todo {
+  display: flex;
+  place-content: center;
+}
