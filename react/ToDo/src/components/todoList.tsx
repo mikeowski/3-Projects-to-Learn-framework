@@ -11,14 +11,14 @@ const TodoList = () => {
   }
   return (
     <div className="todoList">
-      <h1 className="center">Your ToDos</h1>
+      {!todos.length || <h1 className="center">Live TODOs</h1>}
       <ul ref={parent}>
         {todos
           .filter((todo) => todo.completed)
           .map((v, i) => (
             <div className="todo" key={v.title}>
               <span onClick={() => remove(v)} className="outline deleteBtn">
-                ❌
+                ✕
               </span>
               <span className={v.completed ? 'checked' : ''} key={i}>
                 {v.title}
@@ -39,7 +39,7 @@ const TodoList = () => {
           .map((v, i) => (
             <div className="todo" key={v.title}>
               <span onClick={() => remove(v)} className="outline deleteBtn">
-                ❌
+                ✕
               </span>
               <span className={v.completed ? 'checked' : ''} key={i}>
                 {v.title}

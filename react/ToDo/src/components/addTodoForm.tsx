@@ -28,7 +28,7 @@ const AddTodoForm = () => {
       className="todoForm"
     >
       <label htmlFor="todo">
-        <h1 className="center">Add new</h1>
+        <h1 className="center">New TODO</h1>
         <input
           value={title}
           onChange={(e) => setTitle(e.target.value)}

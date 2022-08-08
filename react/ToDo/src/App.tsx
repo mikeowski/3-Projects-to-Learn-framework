@@ -6,7 +6,7 @@ import { todo } from './lib/types'
 function App() {
   const [todoList, setTodoList] = useState<todo[]>([])
   return (
-    <main className="container parent">
+    <main className="container-fluid parent">
       <TodoList />
       <AddTodoForm />
     </main>
