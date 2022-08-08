@@ -15,14 +15,5 @@
   font-size: 32px;
 }
 .mainContainer {
-  justify-content: center;
-  align-items: center;
-  padding: 10px 100px;
-}
-
-@media (min-width: 900px) {
-  .mainContainer {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
+  margin-top: 150px;
 }
