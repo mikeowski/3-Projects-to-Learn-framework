@@ -13,8 +13,8 @@
   * [x] Show todos in a list on page
   * [x] Click a todo to mark it as done
   * [x] Delete button for todo
-  * [ ] Watch todos for changes and save to localStorage
-  * [ ] Load todos from localStorage on page load
+  * [x] Watch todos for changes and save to localStorage
+  * [x] Load todos from localStorage on page load
 * Reddit Client
   * [ ] Generate App with Router
   * [ ] fetch posts from reddit
