@@ -1,16 +1,26 @@
 import { Reducer } from 'react'
 import { Action, ActionType, todo } from '../lib/types'
 
-export const initialState: todo[] = []
-
+export const initialState: todo[] = JSON.parse(
+  localStorage.getItem('todoList') || '[]'
+) as todo[]
+const addLocalStorage = (todoList: todo[]) => {
+  localStorage.setItem('todoList', JSON.stringify(todoList))
+}
 export const reducer: Reducer<todo[], Action> = (todos, action) => {
   switch (action.type) {
     case ActionType.ADD_TODO:
-      return [...todos, action.payload]
+      const addedTodos = [...todos, action.payload]
+      addLocalStorage(addedTodos)
+      return addedTodos
     case ActionType.REMOVE_TODO:
-      return todos.filter((todo) => todo.title !== action.payload.title)
+      const removedTodos = todos.filter(
+        (todo) => todo.title !== action.payload.title
+      )
+      addLocalStorage(removedTodos)
+      return removedTodos
     case ActionType.TOGGLE_TODO:
-      return todos.map((todo) => {
+      const toggledTodos = todos.map((todo) => {
         if (todo.title === action.payload.title) {
           return {
             title: todo.title,
@@ -19,6 +29,8 @@ export const reducer: Reducer<todo[], Action> = (todos, action) => {
         }
         return todo
       })
+      addLocalStorage(toggledTodos)
+      return toggledTodos
     default:
       return todos
   }

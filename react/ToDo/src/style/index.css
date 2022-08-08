@@ -31,6 +31,7 @@ body {
   padding: 8px;
   height: 50px;
   margin-bottom: 10px;
+  font-size: 20px;
 }
 .checked {
   opacity: 50%;
