@@ -16,6 +16,7 @@ const AddTodoForm = () => {
       return
     }
     action({ type: ActionType.ADD_TODO, payload: { title, completed: false } })
+    setTitle('')
   }
 
   return (
