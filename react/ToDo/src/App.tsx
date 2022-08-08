@@ -1,21 +1,12 @@
 import { useState } from 'react'
+import AddTodoForm from './components/addTodoForm'
+import { todo } from './lib/types'
 
 function App() {
+  const [todos, setTodos] = useState<todo[]>([])
   return (
     <div className="mainContainer">
-      <form
-        onSubmit={(e) => {
-          e.preventDefault()
-        }}
-      >
-        <label htmlFor="todo">
-          <h1 className="center">Add new</h1>
-          <input type="text" id="newTodo" placeholder="Check pull requests" />
-        </label>
-        <button type="submit" className="outline">
-          Add
-        </button>
-      </form>
+      <AddTodoForm setTodo={setTodos} Todos={todos} />
     </div>
   )
 }
