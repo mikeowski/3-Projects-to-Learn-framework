@@ -11,7 +11,7 @@
   * [x] Form to add todo
   * [x] Add todo to list when form submitted
   * [x] Show todos in a list on page
-  * [ ] Click a todo to mark it as done
+  * [x] Click a todo to mark it as done
   * [x] Delete button for todo
   * [ ] Watch todos for changes and save to localStorage
   * [ ] Load todos from localStorage on page load
