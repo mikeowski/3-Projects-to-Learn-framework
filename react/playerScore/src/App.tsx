@@ -1,32 +1,26 @@
 import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import './App.css';
+import PlayerCard from './components/playerCard';
 
 function App() {
-  const [count, setCount] = useState(0);
-
+  const [player1Score, setPlayer1Score] = useState(0);
+  const [player2Score, setPlayer2Score] = useState(0);
+  const reset = () => {
+    setPlayer1Score(0);
+    setPlayer2Score(0);
+  };
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <div className="container">
+      <PlayerCard
+        playerName="Player 1"
+        playerScore={player1Score}
+        setPlayerScore={setPlayer1Score}
+      />
+      <PlayerCard
+        playerName="Player 2"
+        playerScore={player2Score}
+        setPlayerScore={setPlayer2Score}
+      />
+      <button onClick={reset}>RESET</button>
     </div>
   );
 }
