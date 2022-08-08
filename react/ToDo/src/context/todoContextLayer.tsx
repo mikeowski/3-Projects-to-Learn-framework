@@ -19,7 +19,11 @@ export const TodoLayer = ({
   reducer: Reducer<todo[], Action>
   initialState: todo[]
 }>) => {
-  return <TodoContext.Provider value={useReducer(reducer, initialState)} />
+  return (
+    <TodoContext.Provider value={useReducer(reducer, initialState)}>
+      {children}
+    </TodoContext.Provider>
+  )
 }
 
 export const useTodoValue = () => useContext(TodoContext)

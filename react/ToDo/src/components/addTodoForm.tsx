@@ -1,13 +1,13 @@
 import { SetStateAction, useState } from 'react'
 import type { Dispatch } from 'react'
-import { todo } from '../lib/types'
-interface props {
-  setTodo: Dispatch<SetStateAction<todo[]>>
-  Todos: todo[]
-}
-const AddTodoForm = ({ setTodo, Todos }: props) => {
+import { todo, ActionType } from '../lib/types'
+import { useTodoValue } from '../context/todoContextLayer'
+
+const AddTodoForm = () => {
+  const [todos, action] = useTodoValue()
+  const [title, setTitle] = useState('')
   const addTodo = () => {
-    if (Todos.find((v) => v.title === title)) {
+    if (todos.find((v) => v.title === title)) {
       alert('This todo is already exist')
       return
     }
@@ -15,10 +15,9 @@ const AddTodoForm = ({ setTodo, Todos }: props) => {
       alert('Please enter a todo')
       return
     }
-    setTodo((prev) => [...prev, { title, completed: false }])
-    setTitle('')
+    action({ type: ActionType.ADD_TODO, payload: { title, completed: false } })
   }
-  const [title, setTitle] = useState('')
+
   return (
     <form
       onSubmit={(e) => {

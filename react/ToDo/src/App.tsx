@@ -7,8 +7,8 @@ function App() {
   const [todoList, setTodoList] = useState<todo[]>([])
   return (
     <main className="container parent">
-      <TodoList todoList={todoList} />
-      <AddTodoForm setTodo={setTodoList} Todos={todoList} />
+      <TodoList />
+      <AddTodoForm />
     </main>
   )
 }

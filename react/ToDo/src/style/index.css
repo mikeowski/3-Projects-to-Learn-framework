@@ -21,11 +21,26 @@ body {
 .todoList {
   place-content: left;
 }
+
 .todo {
   display: flex;
   width: 100%;
   align-items: center;
   justify-content: space-between;
+  border: solid 1px;
+  padding: 8px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+.checked {
+  opacity: 50%;
+  text-decoration: line-through;
+}
+.deleteBtn {
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  border: 0;
 }
 .todo > .title {
   font-size: 24px;

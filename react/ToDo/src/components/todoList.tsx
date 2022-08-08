@@ -1,29 +1,57 @@
 import { Dispatch, SetStateAction } from 'react'
-import { todo } from '../lib/types'
+import { todo, ActionType } from '../lib/types'
+import { useAutoAnimate } from '@formkit/auto-animate/react'
+import { useTodoValue } from '../context/todoContextLayer'
 
-interface props {
-  todoList: todo[]
-}
-const TodoList = ({ todoList }: props) => {
+const TodoList = () => {
+  const [todos, action] = useTodoValue()
+  const [parent] = useAutoAnimate<HTMLUListElement>()
+  const remove = (todo: todo) => {
+    action({ type: ActionType.REMOVE_TODO, payload: todo })
+  }
   return (
     <div className="todoList">
       <h1 className="center">Your ToDos</h1>
-      {todoList.map((v, i) => (
-        <ul className="div2" key={v.title}>
-          <div className="todo">
-            <span className="title" key={i}>
-              {v.title}
-            </span>
-            <input
-              type="checkbox"
-              onChange={(e) => {
-                v.completed = e.target.checked
-                console.log(e)
-              }}
-            />
-          </div>
-        </ul>
-      ))}
+      <ul ref={parent}>
+        {todos
+          .filter((todo) => todo.completed)
+          .map((v, i) => (
+            <div className="todo" key={v.title}>
+              <span onClick={() => remove(v)} className="outline deleteBtn">
+                ❌
+              </span>
+              <span className={v.completed ? 'checked' : ''} key={i}>
+                {v.title}
+              </span>
+              <input
+                type="checkbox"
+                checked={v.completed}
+                onChange={(e) => {
+                  v.completed = e.currentTarget.checked
+                }}
+              />
+            </div>
+          ))}
+      </ul>
+      <ul ref={parent}>
+        {todos
+          .filter((v) => !v.completed)
+          .map((v, i) => (
+            <div className="todo" key={v.title}>
+              <span onClick={() => remove(v)} className="outline deleteBtn">
+                ❌
+              </span>
+              <span className={v.completed ? 'checked' : ''} key={i}>
+                {v.title}
+              </span>
+              <input
+                type="checkbox"
+                checked={v.completed}
+                onChange={(e) => {}}
+              />
+            </div>
+          ))}
+      </ul>
     </div>
   )
 }
