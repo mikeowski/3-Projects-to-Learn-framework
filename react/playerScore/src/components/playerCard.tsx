@@ -1,18 +1,18 @@
 interface props {
-  playerName: string;
-  playerScore: number;
-  setPlayerScore: (score: number) => void;
+  playerName: string
+  playerScore: number
+  setPlayerScore: (score: number) => void
 }
 
 const PlayerCard = (props: props) => {
   const increaseScore = () => {
-    props.setPlayerScore(props.playerScore + 1);
-  };
+    props.setPlayerScore(props.playerScore + 1)
+  }
   const decreaseScore = () => {
     if (props.playerScore > 0) {
-      props.setPlayerScore(props.playerScore - 1);
+      props.setPlayerScore(props.playerScore - 1)
     }
-  };
+  }
   return (
     <div className="container">
       <h1>{props.playerName} score</h1>
@@ -22,6 +22,6 @@ const PlayerCard = (props: props) => {
         <button onClick={decreaseScore}>DOWN</button>
       </div>
     </div>
-  );
-};
-export default PlayerCard;
+  )
+}
+export default PlayerCard

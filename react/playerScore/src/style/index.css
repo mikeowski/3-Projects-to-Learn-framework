@@ -3,16 +3,16 @@
 @tailwind utilities;
 
 .container {
-  @apply mx-auto max-w-lg flex flex-col justify-center h-screen items-center gap-10 pb-10;
+  @apply mx-auto flex h-screen max-w-lg flex-col items-center justify-center gap-10 pb-10;
 }
 
 span {
-  @apply text-3xl font-bold text-center;
+  @apply text-center text-3xl font-bold;
 }
 
 h1 {
-  @apply text-4xl font-bold text-center underline;
+  @apply text-center text-4xl font-bold underline;
 }
 button {
-  @apply px-3 py-1 rounded bg-gray-800 text-white w-20 h-10;
+  @apply h-10 w-20 rounded bg-gray-800 px-3 py-1 text-white;
 }
