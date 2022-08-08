@@ -26,8 +26,8 @@ const TodoList = () => {
               <input
                 type="checkbox"
                 checked={v.completed}
-                onChange={(e) => {
-                  v.completed = e.currentTarget.checked
+                onChange={() => {
+                  action({ type: ActionType.TOGGLE_TODO, payload: v })
                 }}
               />
             </div>
@@ -47,7 +47,9 @@ const TodoList = () => {
               <input
                 type="checkbox"
                 checked={v.completed}
-                onChange={(e) => {}}
+                onChange={() => {
+                  action({ type: ActionType.TOGGLE_TODO, payload: v })
+                }}
               />
             </div>
           ))}
