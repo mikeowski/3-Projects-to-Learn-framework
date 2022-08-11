@@ -15,15 +15,6 @@
   * [x] Delete button for todo
   * [x] Watch todos for changes and save to localStorage
   * [x] Load todos from localStorage on page load
-* Reddit Client
-  * [ ] Generate App with Router
-  * [ ] fetch posts from reddit
-  * [ ] Add posts to page
-  * [ ] Make it look kind of like reddit!
-  * [ ] Add favorite button to post
-  * [ ] Add favorites page to show favorites
-  * [ ] Save favorites to localStorage
-  * [ ] Load favorites on page load
 * Movie Search
   * [ ] Generate App with Router
   * [ ] Add form to search for movies by title
