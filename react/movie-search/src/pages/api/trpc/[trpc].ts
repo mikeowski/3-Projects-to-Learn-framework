@@ -3,15 +3,12 @@ import * as trpcNext from '@trpc/server/adapters/next'
 import { z } from 'zod'
 import superjson from 'superjson'
 import { movie } from '../../../shared/types'
+import { searchInputValidator } from '../../../shared/searchInputValidator'
 export const appRouter = trpc
   .router()
   .transformer(superjson)
   .query('search', {
-    input: z.object({
-      adult: z.boolean(),
-      query: z.string(),
-      year: z.number().nullish(),
-    }),
+    input: searchInputValidator,
     async resolve({ input }) {
       let baseUrl = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.NEXT_PUBLIC_APIKEY}&query=${input.query}&include_adult=${input.adult}`
       if (input.year) {
