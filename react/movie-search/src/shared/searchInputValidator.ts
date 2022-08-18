@@ -6,4 +6,4 @@ export const searchInputValidator = z.object({
   year: z.number().nullish(),
 })
 
-export type SearchInputValidatorType = typeof searchInputValidator
+export type SearchInputValidatorType = z.infer<typeof searchInputValidator>

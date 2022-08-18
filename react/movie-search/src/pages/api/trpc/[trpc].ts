@@ -2,7 +2,7 @@ import * as trpc from '@trpc/server'
 import * as trpcNext from '@trpc/server/adapters/next'
 import { z } from 'zod'
 import superjson from 'superjson'
-import { movie } from '../../../shared/types'
+import { Movie } from '../../../shared/types'
 import { searchInputValidator } from '../../../shared/searchInputValidator'
 export const appRouter = trpc
   .router()
@@ -24,7 +24,7 @@ export const appRouter = trpc
           release_date: v.release_date,
           title: v.title,
         }
-      }) as movie[]
+      }) as Movie[]
     },
   })
 
