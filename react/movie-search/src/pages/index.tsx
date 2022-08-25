@@ -8,6 +8,8 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { trpc } from '../utils/trpc'
 import { useState } from 'react'
 import { Movie } from '../shared/types'
+import { map } from 'zod'
+import MovieCard from '../components/MovieCard'
 const Home: NextPage = () => {
   const {
     register,
@@ -19,14 +21,16 @@ const Home: NextPage = () => {
     resolver: zodResolver(searchInputValidator),
   })
   const [searchResults, setSearchResults] = useState<Movie[]>([])
-  const year = new Date().getFullYear()
-  const years = Array.from(new Array(50), (val, index) => year - index)
+
+  const { mutate, isSuccess } = trpc.useMutation(['search'], {
+    onSuccess(data) {
+      setSearchResults(data)
+    },
+  })
   const onSubmit: SubmitHandler<SearchInputValidatorType> = async (
     submitData
   ) => {
-    const { data } = trpc.useQuery(['search', submitData])
-    if (data) setSearchResults(data)
-    console.log(searchResults)
+    mutate(submitData)
     reset()
   }
 
@@ -45,16 +49,6 @@ const Home: NextPage = () => {
           />
         </label>
         <div>
-          <label htmlFor="number" className="flex w-full justify-between">
-            <span>Year:</span>
-            <select {...register('year')}>
-              {years.map((year) => (
-                <option key={years.indexOf(year)} value={year}>
-                  {year}
-                </option>
-              ))}
-            </select>
-          </label>
           <label htmlFor="checkbox" className="flex w-full justify-between">
             <span>Adult search</span>
             <input {...register('adult')} type="checkbox" className="" />

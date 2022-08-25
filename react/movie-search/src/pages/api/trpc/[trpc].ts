@@ -7,15 +7,13 @@ import { searchInputValidator } from '../../../shared/searchInputValidator'
 export const appRouter = trpc
   .router()
   .transformer(superjson)
-  .query('search', {
+  .mutation('search', {
     input: searchInputValidator,
     async resolve({ input }) {
       let baseUrl = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.NEXT_PUBLIC_APIKEY}&query=${input.query}&include_adult=${input.adult}`
-      if (input.year) {
-        baseUrl += `&year=${input.year}`
-      }
       const res = await fetch(baseUrl)
       const json = await res.json()
+
       return json.results.map((v: any) => {
         return {
           adult: v.adult,
