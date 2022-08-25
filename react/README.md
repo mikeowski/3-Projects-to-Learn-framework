@@ -17,9 +17,9 @@
   * [x] Load todos from localStorage on page load
 * Movie Search
   * [x] Generate App with Router
-  * [ ] Add form to search for movies by title
-  * [ ] fetch movies when form submitted
-  * [ ] Add movies to page
+  * [x] Add form to search for movies by title
+  * [x] fetch movies when form submitted
+  * [x] Add movies to page
   * [ ] Click movie to go to movie page
   * [ ] Create movie route
   * [ ] fetch single movie on movie page
