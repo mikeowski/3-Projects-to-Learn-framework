@@ -8,7 +8,7 @@ type props = {
 const MovieCard: React.FC<props> = ({ movie }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
   return (
-    <div className="items-center justify-center flex flex-col relative ">
+    <div className="items-center justify-center flex flex-col relative">
       {movie.backdrop_path ? (
         <Image
           src={'https://image.tmdb.org/t/p/original' + movie.backdrop_path}
@@ -19,12 +19,13 @@ const MovieCard: React.FC<props> = ({ movie }) => {
       ) : (
         <span>NO IMAGE</span>
       )}
-
-      <div className="opacity-0 hover:opacity-100 absolute flex flex-col justify-center text-center hover:backdrop-brightness-50 backdrop-blur-sm transition-all translate-y-10 hover:translate-y-0 w-full  h-full px-4 font-bold ">
+      <div className="opacity-0 z-30 hover:opacity-100 absolute flex flex-col justify-center text-center hover:backdrop-brightness-50 backdrop-blur-sm transition-all translate-y-2 hover:translate-y-0 w-full h-full px-4 font-bold">
+        {movie.adult ? <span className="text-2xl">+18</span> : null}
         <h2 className="text-white text-3xl">{movie.title}</h2>
         <span className="text-gray-300">
           {movie.release_date?.split('-').reverse().join('/')}
         </span>
+
         <div className="text-gray-200 mt-3">
           {isOpen ? <p>{movie.overview}</p> : null}
           {!isOpen ? (
