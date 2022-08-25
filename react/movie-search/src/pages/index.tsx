@@ -9,7 +9,8 @@ import { trpc } from '../utils/trpc'
 import { useState } from 'react'
 import { Movie } from '../shared/types'
 import { map } from 'zod'
-import MovieCard from '../components/MovieCard'
+import MovieCard from '../components/movieCard'
+
 const Home: NextPage = () => {
   const {
     register,
@@ -51,7 +52,7 @@ const Home: NextPage = () => {
         <div>
           <label htmlFor="checkbox" className="flex w-full justify-between">
             <span>Adult search</span>
-            <input {...register('adult')} type="checkbox" className="" />
+            <input {...register('adult')} type="checkbox" />
           </label>
         </div>
         {/* errors will return when field validation fails  */}
@@ -61,6 +62,13 @@ const Home: NextPage = () => {
           className="hover:cursor-pointer px-4 py-2 border rounded-lg hover:border-gray-100 border-gray-500 transition-all"
         />
       </form>
+      <div className="w-full p-4 sm:grid grid-cols-3 gap-4 flex flex-col">
+        {isSuccess
+          ? searchResults.map((movie) => {
+              return <MovieCard key={movie.title} movie={movie} />
+            })
+          : null}
+      </div>
     </div>
   )
 }
