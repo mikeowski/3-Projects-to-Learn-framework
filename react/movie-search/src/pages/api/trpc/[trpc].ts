@@ -9,20 +9,39 @@ export const appRouter = trpc
   .transformer(superjson)
   .mutation('search', {
     input: searchInputValidator,
-    async resolve({ input }) {
+    async resolve({ input }): Promise<Movie[]> {
       let baseUrl = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.NEXT_PUBLIC_APIKEY}&query=${input.query}&include_adult=${input.adult}`
       const res = await fetch(baseUrl)
       const json = await res.json()
 
       return json.results.map((v: any) => {
         return {
+          id: v.id,
           adult: v.adult,
-          backdrop_path: v.poster_path,
+          poster_image: v.poster_path,
+          backdrop_image: v.backdrop_path,
           overview: v.overview,
           release_date: v.release_date,
           title: v.title,
         }
-      }) as Movie[]
+      })
+    },
+  })
+  .query('findById', {
+    input: z.object({ id: z.string().min(1) }),
+    async resolve({ input }): Promise<Movie> {
+      let baseUrl = `https://api.themoviedb.org/3//movie/${input.id}?api_key=51811d9cdb4bd6a08ed2edc9990fecee`
+      const res = await fetch(baseUrl)
+      const json = await res.json()
+      return {
+        id: json.id,
+        adult: json.adult,
+        poster_image: json.poster_path,
+        backdrop_image: json.backdrop_path,
+        overview: json.overview,
+        release_date: json.release_date,
+        title: json.title,
+      }
     },
   })
 
