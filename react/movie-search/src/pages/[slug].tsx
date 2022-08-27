@@ -13,7 +13,7 @@ const MoviePage: NextPage = () => {
     <div>
       <div className="relative">
         {data?.backdrop_image ? (
-          <div className="relative w-full h-96 z-10">
+          <div className="relative w-full h-96 z-10 bg-gray-900">
             <Image
               src={'https://image.tmdb.org/t/p/original' + data.backdrop_image}
               alt={data.title}
