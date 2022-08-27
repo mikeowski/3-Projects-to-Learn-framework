@@ -2,16 +2,16 @@ import { Movie } from '../shared/types'
 import Image from 'next/image'
 import { useState } from 'react'
 import { spawn } from 'child_process'
+import Link from 'next/link'
 type props = {
   movie: Movie
 }
 const MovieCard: React.FC<props> = ({ movie }) => {
-  const [isOpen, setIsOpen] = useState<boolean>(false)
   return (
-    <div className="items-center justify-center flex flex-col relative">
-      {movie.backdrop_path ? (
+    <div className="items-center justify-center flex flex-col relative h-full">
+      {movie.poster_image ? (
         <Image
-          src={'https://image.tmdb.org/t/p/original' + movie.backdrop_path}
+          src={'https://image.tmdb.org/t/p/original' + movie.poster_image}
           alt={movie.title}
           width={360}
           height={640}
@@ -27,22 +27,11 @@ const MovieCard: React.FC<props> = ({ movie }) => {
         </span>
 
         <div className="text-gray-200 mt-3">
-          {isOpen ? <p>{movie.overview}</p> : null}
-          {!isOpen ? (
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="hover:underline cursor-pointer text-red-500"
-            >
+          <Link href={`/${movie.id}`}>
+            <a href="" className="hover:underline cursor-pointer text-red-500">
               details
-            </button>
-          ) : (
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="hover:underline cursor-pointer text-red-500"
-            >
-              hide
-            </button>
-          )}
+            </a>
+          </Link>
         </div>
       </div>
     </div>
