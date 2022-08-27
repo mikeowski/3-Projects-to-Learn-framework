@@ -20,6 +20,6 @@
   * [x] Add form to search for movies by title
   * [x] fetch movies when form submitted
   * [x] Add movies to page
-  * [ ] Click movie to go to movie page
-  * [ ] Create movie route
-  * [ ] fetch single movie on movie page
+  * [x] Click movie to go to movie page
+  * [x] Create movie route
+  * [x] fetch single movie on movie page
