@@ -1,6 +1,8 @@
 export type Movie = {
+  id: number
   adult: boolean
-  backdrop_path: string
+  poster_image: string
+  backdrop_image: string
   title: string
   overview: string
   release_date: string
