@@ -15,6 +15,7 @@ const MovieCard: React.FC<props> = ({ movie }) => {
           alt={movie.title}
           width={360}
           height={640}
+          draggable="false"
         />
       ) : (
         <span>NO IMAGE</span>
