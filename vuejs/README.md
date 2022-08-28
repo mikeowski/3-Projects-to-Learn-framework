@@ -2,10 +2,10 @@
  
 * Player Score Counter
   * [x] Generate Simple App
-  * [ ] Up Button For Player 1
-  * [ ] Down Button For Player 1
-  * [ ] Up Button For Player 2
-  * [ ] Down Button For Player 2
+  * [x] Up Button For Player 1
+  * [x] Down Button For Player 1
+  * [x] Up Button For Player 2
+  * [x] Down Button For Player 2
 * Todo App
   * [ ] Generate Simple App
   * [ ] Form to add todo
