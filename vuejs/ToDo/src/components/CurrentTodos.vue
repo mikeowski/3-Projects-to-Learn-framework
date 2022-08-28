@@ -2,10 +2,12 @@
   <h2 class="text-center font-bold text-2xl mt-10">Live Todos</h2>
   <div
     v-for="(todo, index) in store?.todoData.todos.filter((todo) => !todo.done)"
-    class="border-b py-2 px-4 mt-2 flex justify-between items-center break-words"
-    @click="store?.methods.updateTodo(todo)"
+    class="border-b py-2 px-8 text-lg mt-2 flex justify-between items-center break-words"
   >
-    <p :class="'w-3/4 ' + (todo.done ? 'line-through' : '')">
+    <p
+      :class="'w-full cursor-pointer ' + (todo.done ? 'line-through' : '')"
+      @click="store?.methods.updateTodo(todo)"
+    >
       {{ todo.content }}
     </p>
 
@@ -14,10 +16,12 @@
   <h2 class="text-center font-bold text-2xl mt-10">Checked</h2>
   <div
     v-for="(todo, index) in store?.todoData.todos.filter((todo) => todo.done)"
-    class="border-b py-2 px-4 mt-2 flex justify-between items-center break-words"
-    @click="store?.methods.updateTodo(todo)"
+    class="border-b py-2 px-8 text-lg mt-2 flex justify-between items-center break-words"
   >
-    <p :class="'w-3/4 ' + (todo.done ? 'line-through' : '')">
+    <p
+      :class="'w-full cursor-pointer ' + (todo.done ? 'line-through' : '')"
+      @click="store?.methods.updateTodo(todo)"
+    >
       {{ todo.content }}
     </p>
 
