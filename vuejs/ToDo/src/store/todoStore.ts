@@ -27,7 +27,6 @@ const methods = {
   updateTodo(todo: Todo) {
     this.removeTodo(todo)
     this.addTodo({ content: todo.content, done: !todo.done })
-    console.log(todoData.todos)
     window.localStorage.setItem('todos', JSON.stringify(todoData.todos))
   },
 }
