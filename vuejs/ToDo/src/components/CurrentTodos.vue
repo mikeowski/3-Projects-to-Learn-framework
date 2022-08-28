@@ -1,7 +1,7 @@
 <template>
   <h2 class="text-center font-bold text-2xl mt-10">Live Todos</h2>
   <div
-    v-for="(todo, index) in store?.todoData.todos.filter((todo) => !todo.done)"
+    v-for="(todo, index) in store?.state.todos.filter((todo) => !todo.done)"
     class="border-b py-2 px-8 text-lg mt-2 flex justify-between items-center break-words"
   >
     <p
@@ -15,7 +15,7 @@
   </div>
   <h2 class="text-center font-bold text-2xl mt-10">Checked</h2>
   <div
-    v-for="(todo, index) in store?.todoData.todos.filter((todo) => todo.done)"
+    v-for="(todo, index) in store?.state.todos.filter((todo) => todo.done)"
     class="border-b py-2 px-8 text-lg mt-2 flex justify-between items-center break-words"
   >
     <p

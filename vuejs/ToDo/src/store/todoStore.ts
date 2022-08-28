@@ -1,4 +1,4 @@
-import { reactive } from 'vue'
+import { reactive, readonly } from 'vue'
 import { Todo } from '../types'
 
 const todoData = reactive<{ todos: Todo[] }>({
@@ -30,6 +30,6 @@ const methods = {
     window.localStorage.setItem('todos', JSON.stringify(todoData.todos))
   },
 }
-export const store = { todoData, methods }
+export const store = { state: readonly(todoData), methods }
 
 export type storeType = typeof store
