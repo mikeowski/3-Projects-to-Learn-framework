@@ -1,6 +1,6 @@
 # 5-Projects-to-Learn-framework
 
-- [ ] React (in Progress..)
-- [ ] Vue
+- [ ] React (3 out of 5 completed)
+- [ ] Vue (In progress...)   
 - [ ] Svelte
 - [ ] Solid js
