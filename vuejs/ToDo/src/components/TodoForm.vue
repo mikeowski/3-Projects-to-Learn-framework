@@ -25,9 +25,7 @@ const todo: Todo = {
   done: false,
 }
 const addTodo = () => {
-  console.log(todo)
-
-  todos!.value = Object.assign([], ...todos!.value, todo)
+  if (todo.content.length != 0) todos!.value = [...todos!.value, todo]
 }
 </script>
 
