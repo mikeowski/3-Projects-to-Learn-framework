@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref, provide } from 'vue'
 import type { Todo } from './types'
+import TodoForm from './components/TodoForm.vue'
 const todos = ref<Todo[]>([])
 provide('todos', todos)
 onMounted(() => {
@@ -11,6 +12,10 @@ onMounted(() => {
 
 <template>
   <h1 class="text-center text-4xl font-bold">TODO</h1>
+  <TodoForm />
+  <div v-for="todo in todos">
+    {{ todo.content }}
+  </div>
 </template>
 
 <style scoped></style>
