@@ -7,8 +7,17 @@ const todoData = reactive<{ todos: Todo[] }>({
 
 const methods = {
   addTodo(todo: Todo) {
-    todoData.todos.push(todo)
-    window.localStorage.setItem('todos', JSON.stringify(todoData.todos))
+    if (
+      todoData.todos.findIndex((v) => v.content == todo.content) &&
+      todo.content
+    ) {
+      todoData.todos.push(todo)
+      window.localStorage.setItem('todos', JSON.stringify(todoData.todos))
+    } else if (!todoData.todos.findIndex((v) => v.content == todo.content)) {
+      alert('Content is not unique')
+    } else {
+      alert('Content can not null')
+    }
   },
   removeTodo(todo: Todo) {
     const index = todoData.todos.findIndex((v) => v.content == todo.content)
