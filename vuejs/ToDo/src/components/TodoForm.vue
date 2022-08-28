@@ -27,6 +27,7 @@ const addTodo = () => {
       ...todos!.value,
       { content: todoContent.value, done: false },
     ]
+    window.localStorage.setItem('todos', JSON.stringify(todos?.value))
   }
   todoContent.value = ''
 }
