@@ -1,7 +1,7 @@
 # VueJs
  
 * Player Score Counter
-  * [ ] Generate Simple App
+  * [x] Generate Simple App
   * [ ] Up Button For Player 1
   * [ ] Down Button For Player 1
   * [ ] Up Button For Player 2
