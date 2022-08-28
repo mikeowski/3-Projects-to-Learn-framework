@@ -18,17 +18,12 @@
 <script setup lang="ts">
 import { inject, ref, Ref } from 'vue'
 import { Todo } from '../types'
-const todos = inject<Ref<Todo[]>>('todos')
+import { storeType } from '../store/todoStore'
+const store = inject<storeType>('store')
 
 const todoContent = ref('')
 const addTodo = () => {
-  if (todoContent.value.length != 0) {
-    todos!.value = [
-      ...todos!.value,
-      { content: todoContent.value, done: false },
-    ]
-    window.localStorage.setItem('todos', JSON.stringify(todos?.value))
-  }
+  store?.methods.addTodo({ content: todoContent.value, done: false })
   todoContent.value = ''
 }
 </script>
