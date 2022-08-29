@@ -30,8 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import { inject, onMounted, Ref } from 'vue'
-import { Todo } from '../types'
+import { inject } from 'vue'
 import type { storeType } from '../store/todoStore'
 const store = inject<storeType>('store')
 </script>

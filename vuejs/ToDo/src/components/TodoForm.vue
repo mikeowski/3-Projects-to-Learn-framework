@@ -18,7 +18,6 @@
 
 <script setup lang="ts">
 import { inject, ref, Ref } from 'vue'
-import { Todo } from '../types'
 import { storeType } from '../store/todoStore'
 const store = inject<storeType>('store')
 
