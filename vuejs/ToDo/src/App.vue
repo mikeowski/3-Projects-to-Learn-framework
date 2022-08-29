@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref, provide } from 'vue'
-import type { Todo } from './types'
+import { provide } from 'vue'
 import TodoForm from './components/TodoForm.vue'
 import CurrentTodos from './components/CurrentTodos.vue'
 import { store } from './store/todoStore'
