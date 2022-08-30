@@ -30,7 +30,7 @@ export const appRouter = trpc
   .query('findById', {
     input: z.object({ id: z.string().min(1) }),
     async resolve({ input }): Promise<Movie> {
-      let baseUrl = `https://api.themoviedb.org/3//movie/${input.id}?api_key=51811d9cdb4bd6a08ed2edc9990fecee`
+      let baseUrl = `https://api.themoviedb.org/3//movie/${input.id}?api_key=${process.env.NEXT_PUBLIC_APIKEY}`
       const res = await fetch(baseUrl)
       const json = await res.json()
       return {
