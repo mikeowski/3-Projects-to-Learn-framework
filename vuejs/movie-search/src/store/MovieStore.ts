@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import fetchMovies from '../lib/MovieDB'
-import type { Movie, searchInput } from '../types'
+import type { Movie, SearchInput } from '../types'
 type StateShape = {
   movies: Movie[]
 }
@@ -21,7 +21,7 @@ export const useMovieStore = defineStore('MovieStore', {
     },
   },
   actions: {
-    async searchMovies(payload: searchInput) {
+    async searchMovies(payload: SearchInput) {
       this.movies = await fetchMovies(payload)
     },
   },

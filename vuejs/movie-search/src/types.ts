@@ -7,7 +7,7 @@ export type Movie = {
   overview: string
   release_date: string
 }
-export type searchInput = {
+export type SearchInput = {
   query: string
   adult: boolean
 }
