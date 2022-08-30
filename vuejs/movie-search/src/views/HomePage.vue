@@ -6,7 +6,13 @@
 
 <script setup lang="ts">
 import MovieSearchForm from '../components/MovieSearchForm.vue'
-const search = (payload: string) => {}
+import { useMovieStore } from '../store/MovieStore'
+import type { SearchInput } from '../types'
+const store = useMovieStore()
+const movies = store.movies
+const search = (payload: SearchInput) => {
+  store.searchMovies(payload)
+}
 </script>
 
 <style scoped></style>
