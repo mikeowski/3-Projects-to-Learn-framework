@@ -2,11 +2,10 @@ import type { Movie, SearchInput } from '../types'
 
 const fetchMovies = async (input: SearchInput): Promise<Movie[]> => {
   let baseUrl = `https://api.themoviedb.org/3/search/movie?api_key=${
-    import.meta.env.PUBLIC_APIKEY
+    import.meta.env.VITE_PUBLIC_APIKEY
   }&query=${input.query}&include_adult=${input.adult}`
   const res = await fetch(baseUrl)
   const json = await res.json()
-
   return json.results.map((v: any) => {
     return {
       id: v.id,
