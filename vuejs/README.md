@@ -16,7 +16,7 @@
   * [x] Watch todos for changes and save to localStorage
   * [x] Load todos from localStorage on page load
 * Movie Search
-  * [ ] Generate App with Router
+  * [x] Generate App with Router
   * [ ] Add form to search for movies by title
   * [ ] fetch movies when form submitted
   * [ ] Add movies to page
