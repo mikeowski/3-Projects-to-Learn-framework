@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-screen-lg mx-auto">
+  <div>
     <MovieSearchForm @search="search" />
     <div class="grid grid-cols-3 gap-2 mt-10">
       <MovieCard v-for="movie in movies" :movie="movie" />
