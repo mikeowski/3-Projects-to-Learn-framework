@@ -10,7 +10,7 @@ const router = createRouter({
       name: 'home',
       component: HomePage,
     },
-    { path: '/:id', name: 'movie', component: MoviePage },
+    { path: '/movie/:id', name: 'movie', component: MoviePage },
   ],
 })
 

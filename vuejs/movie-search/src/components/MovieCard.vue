@@ -16,7 +16,10 @@
       </span>
 
       <div class="text-gray-200 mt-3">
-        <a href="" class="hover:underline cursor-pointer text-red-500">
+        <a
+          :href="'/#/movie/' + movie.id"
+          class="hover:underline cursor-pointer text-red-500"
+        >
           details
         </a>
       </div>
