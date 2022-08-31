@@ -1,7 +1,7 @@
 <template>
   <form
     class="flex flex-col justify-center items-center mt-44 space-y-10"
-    @submit.prevent
+    @submit.prevent="search()"
   >
     <label class="flex flex-col items-center w-full px-10 space-y-4">
       <span class="text-4xl">Search Movie</span>
@@ -27,8 +27,8 @@
       />
     </label>
     <button
+      type="submit"
       class="w-1/5 bg-blue-600 px-2 py-1 rounded-lg hover:bg-blue-800 transition-all"
-      @click="search()"
     >
       Search
     </button>
