@@ -22,7 +22,10 @@ export const useMovieStore = defineStore('MovieStore', {
   },
   actions: {
     async searchMovies(payload: SearchInput) {
-      this.movies = await fetchMovies(payload)
+      if (payload.query.length > 1) this.movies = await fetchMovies(payload)
+      else {
+        alert('please fill the search box')
+      }
     },
   },
 })
