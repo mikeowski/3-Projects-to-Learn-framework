@@ -1,4 +1,4 @@
-# 5-Projects-to-Learn-framework
+# 3-Projects-to-Learn-framework
 
 - [ ] React (3 out of 5 completed)
 - [ ] Vue (3 out of 5 completed)   
